@@ -12,7 +12,8 @@ import { ApiService } from '../../services/api.service';
 export class HqDashboardSubMenuComponent implements OnInit {
   hideSocialMediaFilter = false;
   @Input() socialmediatypes: SocialMediaType[];
-  filterBySocialMediaType = 'All';
+  filterBySocialMediaType: string;
+  submenuOpen = false;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private apiService:  ApiService) {
     // Only display the social media filter dropdown when social media link is active
@@ -30,7 +31,7 @@ export class HqDashboardSubMenuComponent implements OnInit {
   ngOnInit() {
     if (this.activatedRoute.queryParams) {
       this.activatedRoute.queryParams.subscribe((queryParams: any) => {
-        this.filterBySocialMediaType = queryParams.type;
+        this.filterBySocialMediaType = queryParams.type || 'All';
       });
     }
   }
@@ -41,5 +42,12 @@ export class HqDashboardSubMenuComponent implements OnInit {
 
   print() {
     window.print();
+  }
+
+  toggleSubmenu() {
+    if(this.submenuOpen) {
+      return;
+    }
+    this.submenuOpen = !this.submenuOpen;
   }
 }

@@ -11,6 +11,10 @@ nav {
     border-bottom: 1px solid map-get($theme-colors, light);
     margin-bottom: 20px;
 }
+
+.navbar-nav {
+    flex-direction: row;
+}
 #theme-nav #site-title h4{
     padding-top:25px;
     padding-bottom: 9px;
@@ -21,7 +25,7 @@ nav {
     border: 1px solid map-get($theme-colors, light);
     color: map-get($theme-colors, primary-nav);
     &.publish:not([disabled]) {
-        background-color: map-get($theme-colors, primary-nav);
+        background-color: map-get($theme-colors, secondary-nav);
         color: map-get($theme-colors, light);
     }
 }
@@ -29,6 +33,11 @@ nav {
     font-size: 2rem;
     color: map-get($theme-colors, light);
     cursor: pointer;
+}
+.dropdown-menu {
+    left: -128px!important;
+    top: 50px!important;
+    position: absolute;
 }
 .dropdown-toggle::after{
     content:initial;
@@ -48,13 +57,18 @@ nav {
 label {
     font-size: 0.8em;
     font-weight: bold;
-    color: map-get($theme-colors, mediem);
+    color: map-get($theme-colors, medium);
 }
 label.title-label {
     line-height: 50px;
 }
 label.description-label {
     line-height: 25px;
+}
+label.description-label, label.title-label {
+    @include media-breakpoint-down(sm) {
+        text-align: left!important;
+    }
 }
 .hidden {
     visibility: hidden;
@@ -82,5 +96,5 @@ label.description-label {
 .custom-control-label {
     padding-left: 8px;
     font-weight: normal;
-    color: map-get($theme-colors, mediem);
+    color: map-get($theme-colors, medium);
 }
