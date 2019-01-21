@@ -1,7 +1,7 @@
 kind: Template
 apiVersion: v1
 metadata:
-  name: "${NAME}-sonar-build-template"
+  name: "${NAME}-snyk-build-template"
   creationTimestamp: 
 objects:
 - kind: BuildConfig
@@ -28,8 +28,10 @@ objects:
           kind: "${SOURCE_IMAGE_KIND}"
           name: "${SOURCE_IMAGE_NAME}:${SOURCE_IMAGE_TAG}"
         env:
-        - name: SONAR_TOKEN
-          value: "${SONAR_TOKEN}"
+        - name: DOTNET_STARTUP_PROJECT
+          value: "${DOTNET_STARTUP_PROJECT}"
+        - name: SNYK_TOKEN
+          value: "${SNYK_TOKEN}"
     resources:
       requests:
         cpu: "${CPU_REQUEST}"
@@ -52,7 +54,7 @@ parameters:
   displayName: Git Reference
   description: The git reference or branch.
   required: true
-  value: develop
+  value: master
 - name: SOURCE_CONTEXT_DIR
   displayName: Source Context Directory
   description: The source context directory.
@@ -68,7 +70,7 @@ parameters:
   displayName: Source Image Name
   description: The name of the source image.
   required: true
-  value: frontend-yarn-builder-sonar
+  value: frontend-yarn-builder-snyk
 - name: SOURCE_IMAGE_TAG
   displayName: Source Image Tag
   description: The tag of the source image.
@@ -99,13 +101,8 @@ parameters:
   description: The resources Memory request (in Mi, Gi, etc) for this build.
   required: true
   value: 4Gi
-- name: SONAR_TOKEN
-  displayName: Sonarqube Token
-  description: The SonarQube user token
+- name: SNYK_TOKEN
+  displayName: Snyk Token
+  description: A user token obtained from snyk.io
   required: true
   value: '123'
-- name: SONAR_URL
-  displayName: SonarQube URL
-  description: The SonarQube URL
-  required: true
-  value: 'https://sonarqube-ntu9uh-tools.pathfinder.gov.bc.ca'
