@@ -33,12 +33,12 @@ export class ActivityForecastListComponent implements OnInit {
         return;
       }
 
-      if (typeof data['userMinistriesAbbreviations'] === 'undefined' || data['userMinistryAbbreviations'] === null) {
-        this.alerts.showError('An error occurred while retrieving your ministries');
-        return;
-      }
+      // if (typeof data['userMinistriesAbbreviations'] === 'undefined' || data['userMinistryAbbreviations'] === null) {
+      //   this.alerts.showError('An error occurred while retrieving your ministries');
+      //   return;
+      // }
 
-      this.activities = data['activities'];
+      // this.activities = data['activities'];
 
       let todayDow = this.today.getDay();
       if (todayDow === 6) { todayDow = 0; } // group Sunday with Saturday
@@ -51,7 +51,7 @@ export class ActivityForecastListComponent implements OnInit {
         this.activitiesPerDays[dow >= todayDow ? dow - todayDow : dow + 6 - todayDow].push(v);
       });
 
-      this.userMinistriesAbbreviations = data['userMinistriesAbbreviations'];
+      //this.userMinistriesAbbreviations = data['userMinistriesAbbreviations'];
 
       this.route.queryParams.subscribe((queryParams: any) => {
         if (!queryParams.ministries || queryParams.ministries === 'All') {

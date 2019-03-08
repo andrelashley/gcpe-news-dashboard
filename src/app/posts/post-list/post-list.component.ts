@@ -46,12 +46,12 @@ export class PostListComponent implements OnInit {
         });
         FB.XFBML.parse();
       }
-      if (typeof data['userMinistries'] === 'undefined' || data['userMinistries'] === null) {
-        this.alerts.showError('An error occurred while retrieving your ministries');
-        return;
-      }
+      // if (typeof data['userMinistries'] === 'undefined' || data['userMinistries'] === null) {
+      //   this.alerts.showError('An error occurred while retrieving your ministries');
+      //   return;
+      // }
 
-      this.userMinistries = data['userMinistries'];
+      // this.userMinistries = data['userMinistries'];
 
       this.route.queryParams.subscribe((queryParams: any) => {
         if (!queryParams.ministries || queryParams.ministries === 'All') {

@@ -26,15 +26,13 @@ const appRoutes: Routes = [
   {
     path: 'last-7-day-post-list',
     component: PostListComponent,
-    resolve: { posts: PostListResolver, userMinistries: UserMinistryListResolver },
+    resolve: { posts: PostListResolver },
   },
   {
     path: 'next-7-day-activity-list',
     component: ActivityForecastListComponent,
     resolve: {
-      activities: ActivityListResolver,
-      userMinistries: UserMinistryListResolver,
-      userMinistriesAbbreviations: UserMinistryAbbreviationsResolver
+      activities: ActivityListResolver
     },
     canActivate: [AuthGuard, RoleGuard],
     data: {
