@@ -38,7 +38,7 @@ import { SocialMediaRenderService } from './services/socialMediaRender.service';
 import { AppConfigService } from './app-config.service';
 import { PluralizeKindPipe } from './_pipes/pluralize-kind.pipe';
 import { SocialMediaPostComponent } from './social-media/social-media-post/social-media-post.component';
-import { AccountSettingsComponent } from './account-settings/account-settings.component';
+//  import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { AlertComponent } from './core/alert/alert.component';
 import { ApiModule, getApiConfig } from './api.module';
 import { RoleGuard } from './_guards/role.guard';
@@ -46,7 +46,7 @@ import { ActivitiesService } from './services/activities.service';
 import { PostsService } from './services/posts.service';
 import { AddSocialMediaPostComponent } from './social-media/add-social-media-post/add-social-media-post.component';
 import { MinistriesService } from './services/ministries.service';
-import { GcpeSharedModule } from '../../projects/gcpe-shared/src/public_api';
+// import { GcpeSharedModule } from '../../projects/gcpe-shared/src/public_api';
 import { AccountSettingsService } from './services/account-settings.service';
 import { UserMinistryListResolver } from './_resolvers/user-ministry-list.resolver';
 import { UserMinistryAbbreviationsResolver } from './_resolvers/user-ministry-abbreviations.resolver';
@@ -66,7 +66,7 @@ const appInitializerFn = (appConfig: AppConfigService) => {
     FooterComponent,
     HqDashboardSubMenuComponent,
     ActivityForecastListComponent,
-    AccountSettingsComponent,
+    // AccountSettingsComponent,
     ThemesOfWeekComponent,
     ThemeListComponent,
     ThemeSubMenuComponent,
@@ -93,7 +93,7 @@ const appInitializerFn = (appConfig: AppConfigService) => {
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    GcpeSharedModule,
+    // GcpeSharedModule,
     NgbModule.forRoot(),
     ReactiveFormsModule
   ],
@@ -106,7 +106,7 @@ const appInitializerFn = (appConfig: AppConfigService) => {
       deps: [AppConfigService]
     },
     // Services
-    AccountSettingsService,
+    // AccountSettingsService,
     ActivitiesService,
     AuthService,
     MessagesService,

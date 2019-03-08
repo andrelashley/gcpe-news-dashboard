@@ -19,6 +19,8 @@ RUN npm install -g @angular/cli@7.0.3 --unsafe
 
 # install and cache app dependencies
 COPY package.json package.json
+COPY ./openshift/templates/runtime/nginx.conf.template /usr/src/app/nginx/nginx.conf
+COPY ./src/assets/config/appConfig.json.template /usr/src/app/assets/config/appConfig.json
 RUN npm install --silent
 
 # add app
@@ -38,6 +40,7 @@ FROM nginx:1.15.1-alpine
 
 # copy artifact build from the 'build environment' above
 COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
+COPY --from=builder /usr/src/app/nginx /etc/nginx
 
 # run nginx
 EXPOSE 80

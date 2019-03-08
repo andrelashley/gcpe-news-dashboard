@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: news-dashboard-deployment
+  labels:
+    app: news-dashboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: news-dashboard
+  template:
+    metadata:
+      labels:
+        app: news-dashboard
+    spec:
+      containers:
+      - name: news-dashboard
+        image: bcgovnewsdashboard.azurecr.io/hackathon-gcpe-news-dashboard:latest
+        ports:
+        - containerPort: 8080

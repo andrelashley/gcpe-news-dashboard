@@ -16,13 +16,13 @@ import { SocialMediaInputComponent } from './social-media/social-media-input/soc
 import { AuthGuard } from './_guards/auth.guard';
 import { RoleGuard } from './_guards/role.guard';
 import { AddSocialMediaPostComponent } from './social-media/add-social-media-post/add-social-media-post.component';
-import { AccountSettingsComponent } from './account-settings/account-settings.component';
+ // import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { UserMinistryListResolver } from './_resolvers/user-ministry-list.resolver';
 import { UserMinistryAbbreviationsResolver } from './_resolvers/user-ministry-abbreviations.resolver';
 import { MinsitriesResolver } from './_resolvers/ministries.resolver';
 
 const appRoutes: Routes = [
-  { path: 'account-settings', component: AccountSettingsComponent, resolve: { ministries: MinsitriesResolver } },
+  // { path: 'account-settings', component: AccountSettingsComponent, resolve: { ministries: MinsitriesResolver } },
   {
     path: 'last-7-day-post-list',
     component: PostListComponent,

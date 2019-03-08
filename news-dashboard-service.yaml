@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: news-dashboard-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: news-dashboard
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
